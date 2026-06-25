@@ -1,5 +1,6 @@
 package br.com.treina.recife.sgcm_api.repository;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,4 +15,5 @@ public interface PrescricaoRepository extends JpaRepository<Prescricao, Long> {
 
     Optional<Prescricao> findBymedicamentos(String medicamentos);
 
-    Optional<Prescricao> findBydataEmissao(String dataEmissao);
+    Optional<Prescricao> findBydataEmissao(LocalDate dataEmissao);
+}
