@@ -3,7 +3,6 @@ package br.com.treina.recife.sgcm_api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,40 +15,31 @@ import br.com.treina.recife.sgcm_api.model.Consulta;
 import br.com.treina.recife.sgcm_api.service.ConsultaService;
 
 @RestController
-@RequestMapping(value = "/api/consulta")
+@RequestMapping("/consultas")
 public class ConsultaController {
-@Autowired
+
+    @Autowired
     private ConsultaService service;
 
-    // CREATE
-    @PostMapping
-    public Consulta criar(@RequestBody Consulta consulta) {
-        return service.salvar(consulta);
-    }
-
-    // READ - Listar todos
     @GetMapping
     public List<Consulta> listarTodos() {
         return service.listarTodos();
     }
 
-    // READ - Buscar por ID
     @GetMapping("/{id}")
-    public Consulta buscarPorId(@PathVariable Long id) {
+    public Consulta buscar(@PathVariable Long id) {
         return service.buscarPorId(id);
     }
 
-    // UPDATE
+    @PostMapping
+    public Consulta salvar(@RequestBody Consulta consulta) {
+        return service.salvar(consulta);
+    }
+
     @PutMapping("/{id}")
     public Consulta atualizar(@PathVariable Long id,
-                             @RequestBody Consulta consulta) {
+            @RequestBody Consulta consulta) {
+
         return service.atualizar(id, consulta);
     }
-
-    // DELETE
-    @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id) {
-        service.excluir(id);
-    }
 }
-

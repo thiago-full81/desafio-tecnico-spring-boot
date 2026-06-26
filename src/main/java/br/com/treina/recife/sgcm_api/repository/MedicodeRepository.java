@@ -20,4 +20,6 @@ public interface MedicodeRepository extends JpaRepository<Medico, Long> {
 
     Optional<Medico> findByativo(String ativo);
 
+    Medico atualizar(Medico medico);
+
 }

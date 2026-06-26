@@ -3,6 +3,7 @@ package br.com.treina.recife.sgcm_api.model;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity(name = "TB_PACIENTE")
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
