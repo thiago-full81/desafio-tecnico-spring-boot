@@ -10,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +31,11 @@ public class Consulta {
     private StatusConsulta status;
     @Column(nullable = false)
     private String observacoes;
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "medico_id")
+    private Medico medico;
+
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "paciente_id")
+    private Paciente paciente;
 }

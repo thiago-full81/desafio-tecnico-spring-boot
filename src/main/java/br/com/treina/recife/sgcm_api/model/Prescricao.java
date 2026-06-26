@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,4 +27,7 @@ public class Prescricao {
     private String medicamentos;
     @Column(nullable = false)
     private LocalDate dataEmissao;
+    @OneToOne
+    @JoinColumn(nullable = false, name = "consulta_id")
+    private Consulta consulta;
 }
