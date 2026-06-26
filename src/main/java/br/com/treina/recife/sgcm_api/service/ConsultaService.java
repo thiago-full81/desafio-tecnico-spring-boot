@@ -11,13 +11,12 @@ import br.com.treina.recife.sgcm_api.repository.ConsultaRepository;
 
 @Service
 public class ConsultaService {
-
     @Autowired
     private ConsultaRepository consultaRepository;
 
     public List<DadosConsulta> listarcConsultas() {
         return consultaRepository.findAll()
-                         .stream().map(consulta -> converterParaDTO(consulta)).toList();
+                .stream().map(consulta -> converterParaDTO(consulta)).toList();
     }
 
     public DadosConsulta buscarPorId(Long id) {
